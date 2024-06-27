@@ -16,9 +16,7 @@ export default function home() {
         <Levels />
         <MaterialEstudos />
         
-        <View style = {{height:100}}>
-        
-      </View>
+        <View style = {{height:10}}></View>
       </ScrollView>
 
       
