@@ -25,6 +25,7 @@ export default function QuizByLevel() {
     const q = query(collection(db, 'QuizQuestoes'), where('level', '==', level));
     const querySnapshot = await getDocs(q);
     const quizzes = [];
+    
     querySnapshot.forEach((doc) => {
       console.log(doc.data());
       quizzes.push({ id: doc.id, ...doc.data() });

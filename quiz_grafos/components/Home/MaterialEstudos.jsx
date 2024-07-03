@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from './../../configs/FirebaseConfig';
 import MaterialItemList from './MaterialItemList';
+import { useRouter } from 'expo-router';
 
 export default function MaterialEstudos() {
   const [Materiallist, setMateriallist] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     GetMaterialList();
@@ -19,9 +21,13 @@ export default function MaterialEstudos() {
     const materials = [];
     querySnapshot.forEach((doc) => {
       console.log(doc.data());
-      materials.push(doc.data());
+      materials.push({ id: doc.id, ...doc.data() });
     });
     setMateriallist(materials);
+  };
+
+  const handleMaterialPress = (material) => {
+    router.push(`/materialdetails/${material.id}`);
   };
 
   return (
@@ -38,9 +44,9 @@ export default function MaterialEstudos() {
       <FlatList
         data={Materiallist}
         horizontal={true}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <MaterialItemList materiallist={item} />
+          <MaterialItemList materiallist={item} onPress={() => handleMaterialPress(item)} />
         )}
       />
     </View>

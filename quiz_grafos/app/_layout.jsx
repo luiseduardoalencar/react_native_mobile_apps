@@ -2,7 +2,6 @@ import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo"
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import LoginScreen from './../components/LoginScreen'
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import * as SecureStore from 'expo-secure-store';
 

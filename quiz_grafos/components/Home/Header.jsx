@@ -42,7 +42,7 @@ export default function Header() {
             }}>{user?.fullName}</Text>
         </View>
     
-     <View style = {{
+     {/* <View style = {{
         display:'flex',
         flexDirection:'row',
         gap:10,
@@ -59,7 +59,7 @@ export default function Header() {
             fontSize:16,
         color: Colors.GRAY }} 
         />
-     </View>
+     </View> */}
     
     </View>
 
